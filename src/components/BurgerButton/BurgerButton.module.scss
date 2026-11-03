@@ -1,0 +1,60 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.burgerLine {
+  width: 16px;
+  height: 2px;
+  border-radius: 1px;
+
+  background-color: var(--color-text);
+
+  transition:
+    transform $transition-duration $transition-easing,
+    width $transition-duration $transition-easing;
+}
+
+.burgerButton {
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: start;
+  justify-content: center;
+
+  padding: 16px;
+
+  outline: solid var(--color-border) 1px;
+
+  transition: outline-color $transition-duration $transition-easing;
+
+  @include tablet {
+    display: none;
+  }
+
+  &:hover {
+    outline: solid var(--color-text) 1px;
+
+    .firstLine {
+      width: 10px;
+    }
+
+    .thirdLine {
+      width: 10px;
+    }
+  }
+
+  &.isOpen {
+    .burgerLine:nth-child(1) {
+      transform: translateY(4px) rotate(45deg);
+    }
+
+    .burgerLine:nth-child(2) {
+      opacity: 0;
+    }
+
+    .burgerLine:nth-child(3) {
+      transform: translateY(-4px) rotate(-45deg);
+    }
+  }
+}

@@ -1,0 +1,115 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.item {
+  display: grid;
+  grid-template-areas:
+    'remove image name'
+    'quantity quantity price';
+  grid-template-columns: 16px 80px 1fr;
+  gap: 16px;
+  align-items: center;
+
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+
+  background-color: var(--color-text-backdrop);
+  box-shadow: 0 2px 10px rgb(37 39 42 / 8%);
+
+  @include tablet {
+    grid-template-areas: 'remove image name quantity price';
+    grid-template-columns: 16px 96px 1fr 96px 96px;
+    padding: 24px;
+  }
+}
+
+.remove {
+  cursor: pointer;
+
+  display: flex;
+  grid-area: remove;
+
+  opacity: 0.7;
+
+  transition: opacity $transition-duration $transition-easing;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.remove img,
+.counterButton img {
+  filter: var(--icon-filter);
+}
+
+.imageLink {
+  grid-area: image;
+  justify-self: center;
+}
+
+.image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.name {
+  grid-area: name;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.quantity {
+  display: flex;
+  grid-area: quantity;
+  align-items: center;
+}
+
+.counterButton {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+
+  color: var(--color-text);
+
+  background-color: var(--color-surface);
+
+  transition: border-color $transition-duration $transition-easing;
+
+  &:disabled {
+    cursor: default;
+    border-color: var(--color-border);
+    opacity: 0.4;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-text);
+  }
+}
+
+.count {
+  width: 32px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  text-align: center;
+}
+
+.price {
+  grid-area: price;
+  justify-self: end;
+
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 31px;
+}

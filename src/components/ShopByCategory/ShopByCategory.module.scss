@@ -1,0 +1,104 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.title {
+  @include section-title;
+
+  display: table;
+
+  width: fit-content;
+  max-width: 100%;
+  padding: 4px 10px;
+  border-radius: 6px;
+
+  background-color: var(--color-text-backdrop);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px 16px;
+  margin-top: 24px;
+
+  @include tablet {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.card {
+  display: block;
+}
+
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border-radius: 8px;
+}
+
+.image {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  transform-origin: bottom right;
+
+  width: 100%;
+  height: auto;
+
+  transition: transform $transition-duration $transition-easing;
+}
+
+@media (max-width: 639px) {
+  .inView .image {
+    transform: scale(1.04);
+  }
+}
+
+.card:hover .image {
+  transform: scale(1.04);
+}
+
+.name {
+  display: table;
+
+  max-width: 100%;
+  margin-top: 24px;
+  padding: 4px 8px;
+  border-radius: 5px;
+
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 31px;
+
+  background-color: var(--color-text-backdrop);
+}
+
+.count {
+  display: table;
+
+  width: fit-content;
+  margin-top: 4px;
+  padding: 3px 8px;
+  border-radius: 5px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  color: var(--color-secondary);
+
+  background-color: var(--color-text-backdrop);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image {
+    transition: none;
+  }
+
+  .inView .image {
+    transform: none;
+  }
+
+  .card:hover .image {
+    transform: none;
+  }
+}

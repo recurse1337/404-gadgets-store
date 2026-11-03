@@ -1,0 +1,45 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.container {
+  position: fixed;
+  z-index: 100;
+  top: 48px;
+  left: -101%;
+
+  width: 100%;
+  height: 100vh;
+
+  background-color: var(--color-surface);
+  outline: solid var(--color-border) 1px;
+
+  transition:
+    left $transition-duration $transition-easing,
+    background-color $transition-duration $transition-easing,
+    outline-color $transition-duration $transition-easing;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.show {
+  left: 0;
+}
+
+.ordersgroup {
+  position: absolute;
+  bottom: 55px;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.compareIcon {
+  opacity: 0.9;
+  width: 34px;
+}
+

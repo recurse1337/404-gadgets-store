@@ -1,0 +1,44 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.container {
+  display: flex;
+}
+
+.logoGroup {
+  display: flex;
+  align-items: center;
+}
+
+.logo-header {
+  width: 77px;
+  height: 26px;
+
+  @include tablet {
+    width: 130px;
+    height: 45px;
+  }
+}
+
+.logo-footer {
+  width: 120px;
+  height: 45px;
+}
+
+.logoText {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.logoDark {
+  display: none;
+}
+
+:root[data-theme='dark'] .logoLight {
+  display: none;
+}
+
+:root[data-theme='dark'] .logoDark {
+  display: block;
+}

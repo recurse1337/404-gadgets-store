@@ -1,0 +1,73 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+}
+
+.title {
+  margin-top: 24px;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 41px;
+
+  @include tablet {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+.count {
+  display: table;
+
+  width: fit-content;
+  margin-top: 8px;
+  padding: 3px 8px;
+  border-radius: 5px;
+
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--color-secondary);
+
+  background-color: var(--color-text-backdrop);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 272px);
+  gap: 40px 16px;
+  justify-content: flex-start;
+
+  padding-top: 16px;
+
+  @include tablet {
+    padding-top: 40px;
+  }
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+
+  margin-top: 32px;
+}
+
+.emptyImage {
+  align-self: center;
+
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+
+  filter: var(--icon-filter);
+}
+
+.emptyText {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 31px;
+}

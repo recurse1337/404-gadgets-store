@@ -1,0 +1,69 @@
+@use '../../styles/variables' as *;
+
+.breadcrumbs {
+  width: fit-content;
+  max-width: 100%;
+  padding: 8px 10px;
+  border: 1px solid rgb(95 104 109 / 16%);
+  border-radius: 8px;
+
+  background-color: rgb(244 243 236 / 82%);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 1px 4px rgb(37 39 42 / 10%);
+}
+
+:root[data-theme='dark'] .breadcrumbs {
+  border-color: transparent;
+  background-color: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+  color: var(--color-secondary);
+  text-shadow: 0 1px 1px rgb(255 255 255 / 75%);
+
+  transition: color $transition-duration $transition-easing;
+
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+.link img {
+  filter: var(--icon-filter);
+}
+
+.current {
+  overflow: hidden;
+
+  max-width: 100%;
+
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+  color: var(--color-secondary);
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 1px rgb(255 255 255 / 75%);
+  white-space: nowrap;
+}
